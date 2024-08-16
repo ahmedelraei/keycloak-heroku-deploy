@@ -6,7 +6,7 @@ FROM docker.io/maven:3.8.7-openjdk-18 AS mvn_builder
 # Jeff Tian's GitHub Packages, so it's OK to be public and included
 # in the source code
 ENV GH_TOKEN_BASE64=Z2hwXzFaNm5tRWQzTFFuY1RUV3hZSVdlZTNLMjBTY2xXdjNoUkk5Nwo
-ENV JAVA_OPTS="-Xmx2048m -Xms1024m -Djava.security.egd=file:/dev/./urandom"
+ENV JAVA_OPTS="-Xmx6g -Xms2g -XX:MaxMetaspaceSize=1g -XX:ReservedCodeCacheSize=512m"
 
 # Mount local Maven repository to Docker container
 VOLUME /root/.m2
@@ -16,6 +16,8 @@ COPY settings.xml /root/.m2/settings.xml
 
 RUN mkdir -p /opt/keycloak
 COPY . /opt/keycloak
+
+# RUN cd /opt/keycloak && GH_TOKEN=$(echo $GH_TOKEN_BASE64 | base64 --decode) mvn dependency:go-offline -s /root/.m2/settings.xml
 RUN cd /opt/keycloak && GH_TOKEN=$(echo $GH_TOKEN_BASE64 | base64 --decode) mvn install -s /root/.m2/settings.xml
 
 FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION} AS builder
