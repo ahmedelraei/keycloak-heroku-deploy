@@ -15,7 +15,7 @@ COPY settings.xml /root/.m2/settings.xml
 
 RUN mkdir -p /opt/keycloak
 COPY . /opt/keycloak
-RUN cd /opt/keycloak && GH_TOKEN=$(echo $GH_TOKEN_BASE64 | base64 --decode) mvn dependency:go-offline -s /root/.m2/settings.xml
+RUN cd /opt/keycloak && GH_TOKEN=$(echo $GH_TOKEN_BASE64 | base64 --decode) mvn install -s /root/.m2/settings.xml
 
 FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION} AS builder
 COPY --from=mvn_builder /opt/keycloak/target/*.jar /opt/keycloak/providers/
