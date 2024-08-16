@@ -2,14 +2,42 @@ version: '3'
 
 services:
   keycloak:
-      build: 
-        context: .
-        dockerfile: Dockerfile
-      environment:
-        KEYCLOAK_ADMIN: admin
-        KEYCLOAK_ADMIN_PASSWORD: admin
-        PORT: 8080
-        DB_VENDOR: "h2"
-      ports:
-        - 8080:8080
-        - 9990:9990
+    depends_on:
+      - postgres
+    mem_limit: 8g
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ~/.m2:/root/.m2  # 挂载主机的 Maven 本地缓存
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      PORT: 8080
+
+      DB_VENDER: postgres
+      DB_URL: "jdbc:postgresql://postgres:5432/keycloak2"
+      DB_USERNAME: postgres
+      DB_PASSWORD: nopwd
+
+#      DB_VENDOR: "h2"
+      JAVA_OPTS: "-Xmx6g -Xms2g -XX:MaxMetaspaceSize=1g -XX:ReservedCodeCacheSize=512m"
+      JAVA_OPTS_APPEND: "-Xmx6g -Xms2g -XX:MaxMetaspaceSize=1g -XX:ReservedCodeCacheSize=512m"
+    ports:
+      - 8080:8080
+      - 9990:9990
+
+  postgres:
+    image: "postgres"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: keycloak2
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: nopwd
+    volumes:
+      - pg1:/var/lib/postgresql/data
+      - ~/Downloads:/host_downloads  # 这是添加的挂载点
+
+volumes:
+  pg1: ~
