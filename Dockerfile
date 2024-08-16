@@ -6,7 +6,6 @@ FROM docker.io/maven:3.8.7-openjdk-18 AS mvn_builder
 # Jeff Tian's GitHub Packages, so it's OK to be public and included
 # in the source code
 ENV GH_TOKEN_BASE64=Z2hwXzFaNm5tRWQzTFFuY1RUV3hZSVdlZTNLMjBTY2xXdjNoUkk5Nwo
-ENV JAVA_OPTS="-Xmx6g -Xms2g -XX:MaxMetaspaceSize=1g -XX:ReservedCodeCacheSize=512m"
 
 # Mount local Maven repository to Docker container
 VOLUME /root/.m2
