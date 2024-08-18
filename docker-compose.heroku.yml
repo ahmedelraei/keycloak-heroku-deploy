@@ -23,6 +23,8 @@ services:
 #      DB_VENDOR: "h2"
       JAVA_OPTS: "-Xmx6g -Xms2g -XX:MaxMetaspaceSize=1g -XX:ReservedCodeCacheSize=512m"
       JAVA_OPTS_APPEND: "-Xmx6g -Xms2g -XX:MaxMetaspaceSize=1g -XX:ReservedCodeCacheSize=512m"
+    security_opt:
+      - seccomp:unconfined
     ports:
       - 8080:8080
       - 9990:9990
