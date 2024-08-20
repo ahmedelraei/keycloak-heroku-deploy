@@ -74,31 +74,31 @@
         </dependency>
 
         <dependency>
-            <groupId>org.keycloak</groupId>
+            <groupId>io.github.jeff-tian</groupId>
             <artifactId>keycloak-services-social-weixin</artifactId>
-            <version>0.5.28</version>
+            <version>0.5.36</version>
         </dependency>
 
         <dependency>
-            <groupId>org.keycloak</groupId>
+            <groupId>io.github.jeff-tian</groupId>
             <artifactId>keycloak-services-social-dingding</artifactId>
-            <version>0.0.2</version>
+            <version>0.0.4</version>
         </dependency>
 
         <dependency>
-            <groupId>org.keycloak</groupId>
+            <groupId>io.github.jeff-tian</groupId>
             <artifactId>keycloak-services-social-wechat-work</artifactId>
-            <version>22.0.2</version>
+            <version>22.0.5</version>
         </dependency>
         <dependency>
-            <groupId>cc.coopersoft</groupId>
+            <groupId>io.github.jeff-tian</groupId>
             <artifactId>keycloak-phone-provider</artifactId>
-            <version>2.3.9</version>
+            <version>2.3.10</version>
         </dependency>
         <dependency>
-            <groupId>cc.coopersoft</groupId>
+            <groupId>io.github.jeff-tian</groupId>
             <artifactId>keycloak-phone-provider.resources</artifactId>
-            <version>2.3.9</version>
+            <version>2.3.10</version>
         </dependency>
         <!--        <dependency>-->
         <!--            <groupId>cc.coopersoft</groupId>-->
@@ -106,9 +106,9 @@
         <!--            <version>2.3.7</version>-->
         <!--        </dependency>-->
         <dependency>
-            <groupId>cc.coopersoft</groupId>
+            <groupId>io.github.jeff-tian</groupId>
             <artifactId>keycloak-sms-provider-dummy</artifactId>
-            <version>2.3.9</version>
+            <version>2.3.10</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-jaxb-annotations -->
         <dependency>
@@ -177,14 +177,4 @@
             </plugin>
         </plugins>
     </build>
-    <repositories>
-        <repository>
-            <!-- id必须唯一 -->
-            <id>github</id>
-            <!-- 见名知意即可 -->
-            <name>github repository</name>
-            <!-- 仓库的url地址 -->
-            <url>https://maven.pkg.github.com/jeff-tian/*</url>
-        </repository>
-    </repositories>
 </project>
