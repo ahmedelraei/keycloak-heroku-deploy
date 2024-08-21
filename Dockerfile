@@ -25,7 +25,7 @@ USER 1000
 
 ENV JAVA_OPTS="-Xmx2g -Xms512m"
 
-RUN /opt/keycloak/bin/kc.sh build --db=postgres --health-enabled=true
+RUN /opt/keycloak/bin/kc.sh build --db=postgres --health-enabled=true --optimized
 
 FROM quay.io/keycloak/keycloak:$KEYCLOAK_VERSION
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
@@ -34,5 +34,6 @@ WORKDIR /opt/keycloak
 ENV KC_PROXY_ADDRESS_FORWARDING=true
 
 # https://www.keycloak.org/server/logging
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev", "--http-port=$PORT", "--db=postgres", "--db-url=$DB_URL", "--db-username=$DB_USERNAME", "--db-password=$DB_PASSWORD", "--features=\"preview,scripts\"", "--spi-phone-default-service=dummy", "--spi-phone-default-duplicate-phone=false", "--hostname-strict=false", "--proxy=edge", "--log-level=INFO"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--optimized"]
+CMD ["--http-port=${PORT}", "--db=postgres", "--db-url=${DB_URL}", "--db-username=${DB_USERNAME}", "--db-password=${DB_PASSWORD}", "--features=preview,scripts", "--spi-phone-default-service=dummy", "--spi-phone-default-duplicate-phone=false", "--hostname-strict=false", "--proxy=edge", "--log-level=root:INFO"]
 
