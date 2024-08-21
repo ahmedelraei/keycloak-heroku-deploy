@@ -35,5 +35,5 @@ ENV KC_PROXY_ADDRESS_FORWARDING=true
 
 # https://www.keycloak.org/server/logging
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--optimized"]
-CMD ["--http-port=${PORT}", "--db-url=${DB_URL}", "--db-username=${DB_USERNAME}", "--db-password=${DB_PASSWORD}", "--spi-phone-default-service=dummy", "--spi-phone-default-duplicate-phone=false", "--hostname-strict=false", "--proxy=edge", "--log-level=root:INFO"]
+CMD ["--http-port=${PORT}", "--db-url-host=${DB_URL}", "--db-username=${DB_USERNAME}", "--db-password=${DB_PASSWORD}", "--spi-phone-default-service=dummy", "--spi-phone-default-duplicate-phone=false", "--hostname-strict=false", "--proxy=edge", "--log-level=root:INFO"]
 
