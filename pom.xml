@@ -88,7 +88,7 @@
         <dependency>
             <groupId>io.github.jeff-tian</groupId>
             <artifactId>keycloak-services-social-wechat-work</artifactId>
-            <version>22.0.5</version>
+            <version>22.0.6</version>
         </dependency>
         <dependency>
             <groupId>io.github.jeff-tian</groupId>
