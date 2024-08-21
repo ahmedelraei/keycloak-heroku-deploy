@@ -32,6 +32,7 @@ COPY --from=builder /opt/keycloak/ /opt/keycloak/
 WORKDIR /opt/keycloak
 
 ENV KC_PROXY_ADDRESS_FORWARDING=true
+ENV KC_DB_SCHEMA=${DB_SCHEMA}
 
 # https://www.keycloak.org/server/logging
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--optimized"]
