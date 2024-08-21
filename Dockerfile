@@ -23,6 +23,8 @@ ENV KC_HTTP_ENABLED=true
 
 USER 1000
 
+ENV JAVA_OPTS="-Xmx2g -Xms512m"
+
 RUN /opt/keycloak/bin/kc.sh build --db=postgres --health-enabled=true
 
 FROM quay.io/keycloak/keycloak:$KEYCLOAK_VERSION
