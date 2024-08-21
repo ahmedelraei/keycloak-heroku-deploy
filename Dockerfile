@@ -25,7 +25,7 @@ USER 1000
 
 ENV JAVA_OPTS="-Xmx2g -Xms512m"
 
-RUN /opt/keycloak/bin/kc.sh build --db=postgres --health-enabled=true --optimized
+RUN /opt/keycloak/bin/kc.sh build --db=postgres --health-enabled=true
 
 FROM quay.io/keycloak/keycloak:$KEYCLOAK_VERSION
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
