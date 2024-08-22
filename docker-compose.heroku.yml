@@ -15,12 +15,7 @@ services:
       KEYCLOAK_ADMIN_PASSWORD: admin
       PORT: 8080
 
-      DB_VENDER: postgres
-      DB_URL: "jdbc:postgresql://postgres:5432/keycloak2"
-      DB_USERNAME: postgres
-      DB_PASSWORD: nopwd
-      DB_URL_HOST: "postgres"
-      DB_SCHEMA: "keycloak2"
+      DB_URL: "postgresql://postgres:nopwd@postgres:5432/keycloak2"
 
 #      DB_VENDOR: "h2"
       JAVA_OPTS: "-Xmx6g -Xms2g -XX:MaxMetaspaceSize=1g -XX:ReservedCodeCacheSize=512m"
