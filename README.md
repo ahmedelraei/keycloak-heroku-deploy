@@ -19,9 +19,11 @@
 
 [![部署到 Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-Keycloak 是一款优秀的开源身份与访问管理系统，直接部署到 Heroku 会存在一个小问题，因此需要做一些小调整。本仓库基于上游的调整，升级了
+Keycloak 是一款优秀的开源身份与访问管理系统，~~直接部署到 Heroku 会存在一个小问题，因此需要做一些小调整。本仓库基于上游的调整，升级了
 Keycloak 的版本，并适配了 Heroku 的免费
-Dyno，从而不需要付费，免费拥有一个 Keycloak 实例。
+Dyno，从而不需要付费，免费拥有一个 Keycloak 实例~~，本仓库增加了 Jeff Tian 参与开发的各个 Keycloak 社交登录插件，比如微信登录、钉钉登录、企业微信等等，并提供了 Docker 部署方式和一键部署到 Heroku 的方式。
+
+![](./微信截图_20240823091341.png)
 
 ### 线上域名
 
