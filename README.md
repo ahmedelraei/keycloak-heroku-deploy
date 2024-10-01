@@ -17,7 +17,7 @@
 
 ## 🇨🇳 中文版说明
 
-[![部署到 Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![部署到 Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ahmedelraei/keycloak-heroku-deploy)
 
 Keycloak 是一款优秀的开源身份与访问管理系统，~~直接部署到 Heroku 会存在一个小问题，因此需要做一些小调整。本仓库基于上游的调整，升级了
 Keycloak 的版本，并适配了 Heroku 的免费
